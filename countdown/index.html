@@ -18,6 +18,18 @@
         <p class="countdown" id="countdownSection"></p>
     </section>
 
+    <center>
+    <div class="player">
+        <div class="title" id="music-title">Carregando...</div>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="controls">
+            <button class="btn" onclick="nextMusic()">▶  Próxima</button>
+        </div>
+        <audio id="audio" ontimeupdate="updateProgress()"></audio>
+    </div>
+</center>
     <section>
         <h2>Galeria de Momentos</h2>
         <div class="gallery">
