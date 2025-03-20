@@ -7,39 +7,87 @@
     <title>Nosso Amor</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        Faltam <span id="countdownHeader"></span> para o dia 8 de maio de 2025
+    <header style="font-family: Georgia, 'Times New Roman', Times, serif;">
+        Faltam <span id="countdownHeader"></span> para nos reecontrarmos
     </header>
 
     <section>
         <h2>Nosso aniversário de namoro</h2>
         <p class="countdown" id="countdownSection"></p>
     </section>
-
     <center>
-    <div class="player">
-        <div class="title" id="music-title">Carregando...</div>
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
-        </div>
-        <div class="controls">
-            <button class="btn" onclick="nextMusic()">▶  Próxima</button>
-        </div>
-        <audio id="audio" ontimeupdate="updateProgress()"></audio>
-    </div>
+        <div class="player">
+            <div class="header">
+              <div class="title" id="music-title">Carregando...</div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" id="progress"></div>
+            </div>
+            <div class="controls">
+                <button class="btn" id="back-btn">
+                    <!-- Ícone de voltar música -->
+                    <svg class="prev-icon" viewBox="0 0 24 24">
+                      <polygon points="20,4 10,12 20,20"/>
+                      <rect x="4" y="4" width="4" height="16"/>
+                    </svg>
+                  </button>
+              <button class="btn" id="play-pause-btn">
+                <!-- Ícone de play padrão -->
+                <svg class="play-icon" viewBox="0 0 24 24">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="btn" id="next-btn">
+                <!-- Ícone de próxima música -->
+                <svg class="next-icon" viewBox="0 0 24 24">
+                  <polygon points="4,4 14,12 4,20"/>
+                  <rect x="16" y="4" width="4" height="16"/>
+                </svg>
+              </button>
+            </div>
+            <audio id="audio" ontimeupdate="updateProgress()"></audio>
+          </div>
 </center>
-    <section>
+    <section style="background-color:rgba(255, 0, 0, 0.274) ;">
         <h2>Galeria de Momentos</h2>
         <div class="gallery">
-            <img src="foto1.jpg" alt="Foto nossa 1">
-            <img src="foto2.jpg" alt="Foto nossa 2">
-            <img src="foto3.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/fotoNossa1.jpg" alt="Foto nossa 1">
+            <img class="animation" src="img/fotoNossa2.jpg" alt="Foto nossa 2">
+            <img class="animation" src="img/fotoNossa3.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/fotoNossa4.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/foto1.jpg" alt="Foto nossa 1">
+            <img class="animation" src="img/foto2.jpg" alt="Foto nossa 2">
+            <img class="animation" src="img/9.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/foto4.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/1.jpg" alt="Foto nossa 1">
+            <img class="animation" src="img/2.jpg" alt="Foto nossa 2">
+            <img class="animation" src="img/3.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/4.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/5.jpg" alt="Foto nossa 1">
+            <img class="animation" src="img/6.jpg" alt="Foto nossa 2">
+            <img class="animation" src="img/7.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/8.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/10.jpg" alt="Foto nossa 1">
+            <img class="animation" src="img/11.jpg" alt="Foto nossa 2">
+            <img class="animation" src="img/12.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/13.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/14.jpg" alt="Foto nossa 1">
+            <img class="animation" src="img/15.jpg" alt="Foto nossa 2">
+            <img class="animation" src="img/16.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/17.jpg" alt="Foto nossa 3">
+            <img class="animation" src="img/18.jpg" alt="Foto nossa 1">
+            <img class="animation" src="img/19.jpg" alt="Foto nossa 2">
+           
         </div>
     </section>
 
+
     <section>
+        Nossas declarações
+    </section>
+
+    <section style="background-color: brown;">
         <h2>Declaração de Amor</h2>
         <p class="love-message">"Amar você não significa ter sentimentos por você.
             Amar você significa cuidar de você independente da situação, significa não desistir mesmo quando tudo
@@ -48,7 +96,7 @@
             E é por isso mesmo que eu sempre vou insistir em você, quando eu digo que te amo, na verdade quero dizer que eu te vivo. Vivo cada segundo da sua vida, vivo seus sonhos. E o que significa viver? significa dar vida á coisas que não fazem parte da minha, ou seja, eu acredito nos seus sonhos mais do que você mesmo, eu acredito em tudo o que você diz, faz, e em tudo o que vc me promete, vc é mais do que um amor...vc é uma vida inteira alojada no meu coração"</p>
     </section> 
 
-    <section>
+    <section style="background-color:brown">
         <h2>Declaração de Amor</h2>
         <p class="love-message">"Uma vez me perguntaram oq eu vi nela, e eu respondi "Oque faltava em mim". Eu no te procurei, pois achei que era impossivel ter uma pessoa como voce, mas Deus me mostrou qe eh possivel, e me mostra todos os dias que suas decisoes nunca erram. Voce me ensinou o que eh o amor, para mim, voce eh a definicao de amor. Vamos casar juntos! Juro po Deus que nunca pensei e nunca pensarei em algo diferente de ter a familia mais linda do mundo com voce!"</p>
     </section> 

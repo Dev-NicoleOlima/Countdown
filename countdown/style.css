@@ -1,81 +1,120 @@
+
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f8f9fa;
+    background: url(img/image\ copy.png);
     padding: 20px;
 }
 header {
     font-size: 24px;
-    background-color: #ff6699;
-    color: white;
+    background-color:#922727;
+    color: rgb(255, 238, 244);
     padding: 20px;
     border-radius: 10px;
 }
+
+
+
+
 section {
+    font-size: 24px;
     margin-top: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: rgb(255, 238, 244);
     padding: 20px;
-    background-color: #fff;
+    background-color:#470303;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(247, 247, 247, 0.1);
 }
+
+
 .player {
-    background: #2ecc71;
-    color: white;
+    background: linear-gradient(145deg, #e02323, #191414);
+    width: 320px;
     padding: 20px;
-    width: 300px;
     border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;
+    margin: 50px 0;
     align-items: center;
-    margin: 30px 0px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-.title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-.progress-bar {
+  }
+  /* Cabeçalho com logo e título */
+  .header {
     width: 100%;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    margin-bottom: 10px;
-    position: relative;
-}
-.progress {
-    height: 5px;
-    background: white;
-    width: 0%;
-    border-radius: 5px;
-}
-.controls {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-.btn {
-    background: white;
-    color: #2ecc71;
+    margin-bottom: 15px;
+  }
+
+  
+  .title {
+    flex: 1;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fff;
+    text-overflow: ellipsis;
+  }
+  /* Barra de progresso */
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative; /* Necessário para posicionar o filho */
+  }
+  .progress {
+    position: absolute; /* Posiciona relativo ao .progress-bar */
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #fff;
+    width: 0%; /* Inicia zerada e cresce para a direita */
+    transition: width 0.2s ease;
+  }
+  /* Controles */
+  .controls {
+    display: flex;
+    gap: 15px;
+  }
+  .btn {
+    background: none;
     border: none;
-    width: 100px;
-    height: 30px;
-    margin-top: 20px;
-    border-radius: 50px;
     cursor: pointer;
-    font-size: 16px;
-}
+    outline: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+  .btn:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  /* Ícones para play/pause e next */
+  .play-icon, .pause-icon, .next-icon, .prev-icon {
+    fill: #fff;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+  .btn:active .play-icon,
+  .btn:active .pause-icon,
+  .btn:active .next-icon {
+    transform: scale(0.9);
+  }
 .countdown {
     font-size: 30px;
     font-weight: bold;
-    color: #333;
-}
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    color: #ffffff;
 }
 .gallery img {
     width: 150px;
@@ -83,10 +122,18 @@ section {
     border-radius: 10px;
     object-fit: cover;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Transição suave para o efeito */
 }
+
+.gallery img:hover {
+    transform: scale(1.1); /* Expande a imagem em 10% */
+}
+
 .love-message {
     font-size: 20px;
     font-style: italic;
-    color: #ff6699;
+    color: #cfc7c7;
     margin-top: 20px;
 }
+
+
