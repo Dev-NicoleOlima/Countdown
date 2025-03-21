@@ -16,6 +16,13 @@ header {
 
 
 
+.album-cover {
+  width: 90px;
+  height: 100px;
+  border-radius: 5px;
+  margin: 10px;
+  object-fit: cover;
+}
 
 section {
     font-size: 24px;
@@ -30,6 +37,7 @@ section {
 
 
 .player {
+  
     background: linear-gradient(145deg, #e02323, #191414);
     width: 320px;
     padding: 20px;
