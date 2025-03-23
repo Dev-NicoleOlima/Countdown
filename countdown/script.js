@@ -27,16 +27,19 @@ const musicList = [
 
   // Elementos do DOM
   let msc_index = 0;
-  const audio = document.getElementById("audio");
-  const title = document.getElementById("music-title");
-  const progress = document.getElementById("progress");
-  const playPauseBtn = document.getElementById("play-pause-btn");
-  const nextBtn = document.getElementById("next-btn");
-  const prevBtn = document.getElementById("back-btn");
+  let audio;
+  let title;
+  let progress;
+  let playPauseBtn;
+  let nextBtn;
+  let prevBtn;
   let isPlaying = false;
+  let startedMusic = false;
 
   // Toca a música selecionada e atualiza o título
   function playMusic(music) {
+    console.log(music);
+
     audio.src = music;
     // Remove a pasta "music/" e a extensão ".mp3" para exibir o título
     title.innerText = music.substring(music.lastIndexOf("/") + 1, music.lastIndexOf("."));
@@ -47,11 +50,17 @@ const musicList = [
 
   // Alterna entre play e pause com animação
   function togglePlayPause() {
+    if (!startedMusic)
+    {
+      nextMusic();
+      startedMusic = true;
+      return; 
+    }
     if (isPlaying) {
       audio.pause();
       isPlaying = false;
     } else {
-      audio.play();
+      audio.play(); 
       isPlaying = true;
     }
     updatePlayPauseIcon();
@@ -88,14 +97,20 @@ const musicList = [
     }
   }
 
-  // Eventos para os botões
-  playPauseBtn.addEventListener("click", togglePlayPause);
-  nextBtn.addEventListener("click", nextMusic);
-  prevBtn.addEventListener("click", prevMusic)
-
   // Ao carregar a página, toca uma música aleatória
   window.onload = () => {
-    playMusic(nextMusic());
+    audio = document.getElementById("audio");
+    title = document.getElementById("music-title");
+    progress = document.getElementById("progress");
+    playPauseBtn = document.getElementById("play-pause-btn");
+    nextBtn = document.getElementById("next-btn");
+    prevBtn = document.getElementById("back-btn");
+
+    // Eventos para os botões
+    playPauseBtn.addEventListener("click", togglePlayPause);
+    nextBtn.addEventListener("click", nextMusic);
+    prevBtn.addEventListener("click", prevMusic)
+
     updatePlayPauseIcon();
     const button = document.querySelectorAll('.animation');
 
@@ -122,6 +137,8 @@ const musicList = [
       button[2].classList.remove('animate');
     }, 600);
   });
+
+  fetchAndDisplayData();
   };
 // Contagem regressiva para 8 de maio de 2025
 let may8_2025 = new Date("May 8, 2025 00:00:00").getTime();
@@ -141,6 +158,52 @@ function updateAnniversaryCountdown() {
         setTimeout(updateAnniversaryCountdown, 5000);
     });
 }
+
+async function fetchAndDisplayData() {
+  const url = 'https://script.google.com/macros/s/AKfycbz799vj9_bgNFeiIYyBPR9ecxCxAm_x6y5xHLN9xCSxsTR8Y02bfyAB1KCPvbF8eQloLw/exec?action=list'; 
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const jsonData = await response.json();
+
+
+    let textOutput = '';
+    jsonData.forEach(element => {
+      
+      textOutput += element + '<br>';
+    });
+
+    
+    document.getElementById('messages').innerHTML = textOutput;
+
+}
+
+async function enviarItem() {
+  const input = document.getElementById('inputItem');
+  const item = encodeURIComponent(input.value.trim());
+
+  const url = `https://script.google.com/macros/s/AKfycbxwxFvq6KJB3y4lLVWMktTVsjM6A3lGtHXBdaOFMZiTpL9-8b7ofJ_3rQ7vpwMQaV5fHA/exec?action=add&item=${item}`;
+
+  input.value = ""; // limpa o campo
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain'
+      }
+    });
+  
+  fetchAndDisplayData();
+}
+
 
 updateAnniversaryCountdown();
 
