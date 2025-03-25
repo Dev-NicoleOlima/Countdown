@@ -22,7 +22,11 @@ function updateCountdown(targetDate, elementId, callback) {
 
 const musicList = [
     "music/Escreve ai.mp3",
-    "music/Chuva de arroz.mp3"
+    "music/Chuva de arroz.mp3",
+    "music/Te Esperando.mp3",
+    "music/Sinais.mp3",
+    "music/Incondicional.mp3",
+    "music/água com açúcar.mp3",
   ];
 
   // Elementos do DOM
@@ -82,11 +86,15 @@ const musicList = [
 
   // Toca a próxima música
   function nextMusic() {
-    playMusic(musicList[Math.abs(msc_index++) % musicList.length]);
+    const index = Math.abs(++msc_index) % musicList.length;
+    console.log(index);
+    playMusic(musicList[index]);
   }
 
   function prevMusic() {
-    playMusic(musicList[Math.abs(msc_index--) % musicList.length]);
+    const index = Math.abs(--msc_index) % musicList.length;
+    console.log(index);
+    playMusic(musicList[index]);
   }
 
   // Atualiza a barra de progresso de acordo com o tempo atual
